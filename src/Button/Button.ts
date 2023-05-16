@@ -14,7 +14,7 @@ type SizeProps = {
 };
 
 const lightVariantStyles = css<ColorProps>`
-  color: ${({ theme, color = 'primary' }) => theme.colors[color][10]};
+  color: ${({ theme, color = "primary" }) => theme.colors[color][10]};
   background-color: ${({ theme, color }) => theme.colors[color][3]};
 
   &:hover {
@@ -27,7 +27,7 @@ const lightVariantStyles = css<ColorProps>`
 `;
 
 const borderedVariantStyles = css<ColorProps>`
-  color: ${({ theme, color = 'primary' }) => theme.colors[color][10]};
+  color: ${({ theme, color = "primary" }) => theme.colors[color][10]};
   background-color: ${({ theme, color }) => theme.colors[color][0]};
   box-shadow: 0 0 0 1px ${({ theme, color }) => theme.colors[color][6]};
 
@@ -41,7 +41,7 @@ const borderedVariantStyles = css<ColorProps>`
 `;
 
 const solidVariantStyles = css<ColorProps>`
-  color: ${({ theme, color = 'primary' }) => theme.colors[color][2]};
+  color: ${({ theme, color = "primary" }) => theme.colors[color][2]};
   background-color: ${({ theme, color }) => theme.colors[color][9]};
 
   &:hover {
@@ -57,20 +57,24 @@ const VARIANTS = {
   solid: solidVariantStyles,
   light: lightVariantStyles,
   bordered: borderedVariantStyles,
-}
+};
 
 const sizeStyles = css<SizeProps>`
   padding: 0 ${({ theme, size }) => theme.space[SIZES[size]]};
   font-size: ${({ theme, size }) => theme.fontSizes[SIZES[size]]};
-  height: ${({ theme, size }) => `${pixels(theme.space[SIZES[size]]) * 2 + pixels(theme.space[SIZES[size]]) / 2}px`};
+  height: ${({ theme, size }) =>
+    `${
+      pixels(theme.space[SIZES[size]]) * 2 +
+      pixels(theme.space[SIZES[size]]) / 2
+    }px`};
 `;
 
 interface Props {
   color: ColorType;
   variant: VariantType;
-  size:  SizeType;
+  size: SizeType;
   children: React.ReactNode;
-};
+}
 
 export const BaseButton = styled.button<Props>`
   all: unset;

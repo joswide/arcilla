@@ -15,14 +15,14 @@ export const SliderTrack = styled(PrimitiveSlider.Track)`
   position: relative;
   flex-grow: 1;
   height: 3px;
-  background-color: ${({theme}) => theme.colors.primary[6]}};
+  background-color: ${({ theme }) => theme.colors.primary[6]}};
   border-radius: 9999px;
 `;
 
 export const SliderRange = styled(PrimitiveSlider.Range)`
   position: absolute;
   height: 100%;
-  background-color: ${({theme}) => theme.colors.primary[8]}};
+  background-color: ${({ theme }) => theme.colors.primary[8]}};
   border-radius: 9999px;
 `;
 
@@ -32,21 +32,19 @@ export const SliderThumb = styled(PrimitiveSlider.Thumb)`
   width: 18px;
   height: 18px;
   background-color: #fff;
-  /* background-color: ${({theme}) => theme.colors.primary[8]}}; */
-  border: 2px solid ${({theme}) => theme.colors.primary[8]}};
+  /* background-color: ${({ theme }) => theme.colors.primary[8]}}; */
+  border: 2px solid ${({ theme }) => theme.colors.primary[8]}};
 
   border-radius: 10px;
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 5px ${({theme}) => theme.colors.primary[4]}};
+    box-shadow: 0 0 0 5px ${({ theme }) => theme.colors.primary[4]}};
     /* border-width: 3px; */
   }
 
   &:hover {
-    /* background-color: ${({theme}) => theme.colors.primary[9]}};
+    /* background-color: ${({ theme }) => theme.colors.primary[9]}};
     background-color: #fff; */
   }
 `;
-
-

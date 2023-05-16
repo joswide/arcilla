@@ -57,4 +57,3 @@ export const Label = styled.label`
   line-height: 1;
   padding-left: 15px;
 `;
-

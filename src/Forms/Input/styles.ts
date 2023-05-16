@@ -1,6 +1,6 @@
 // @ts-ignore
-import styled from 'styled-components';
-import { blackA } from '@radix-ui/colors';
+import styled from "styled-components";
+import { blackA } from "@radix-ui/colors";
 import { pixels } from "../../utils";
 import { SIZES } from "../../aliases";
 
@@ -49,15 +49,21 @@ export const Input = styled.input<any>`
     color: #fff;
   }
 
-  padding: 0 ${
-    // @ts-ignore
-    ({ theme, size }) => pixels(theme.space[SIZES[size]]) / 2
-  }px;
+  padding: 0
+    ${
+      // @ts-ignore
+      ({ theme, size }) => pixels(theme.space[SIZES[size]]) / 2
+    }px;
   height: ${
     // @ts-ignore
-    ({ theme, size }) => `${pixels(theme.space[SIZES[size]]) * 2 + pixels(theme.space[SIZES[size]]) / 2}px`
+    ({ theme, size }) =>
+      `${
+        // @ts-ignore
+        pixels(theme.space[SIZES[size]]) * 2 +
+        // @ts-ignore
+        pixels(theme.space[SIZES[size]]) / 2
+      }px`
   };
 `;
 
 // height: ${({ theme, size = "medium" }) => `${pixels(theme.space[SIZES[size] || 1]) * 2 + pixels(theme.space[SIZES[size]]) / 2}px`};
-

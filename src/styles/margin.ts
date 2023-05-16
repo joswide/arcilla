@@ -8,34 +8,34 @@ export type MarginType = {
   marginLeft?: keyof typeof SIZES;
   marginRight?: keyof typeof SIZES;
   margin?: keyof typeof SIZES;
-}
+};
 
-const marginValue = (props: Object, value:string) => {
+const marginValue = (props: Object, value: string) => {
   // @ts-ignore
-  return `${2 * pixels(props.theme.space[SIZES[value]])}px`
-}
+  return `${2 * pixels(props.theme.space[SIZES[value]])}px`;
+};
 
 const marginRules = [
   {
     prop: "marginTop",
     property: "margin-top",
-    css: marginValue
+    css: marginValue,
   },
   {
     prop: "marginBottom",
     property: "margin-bottom",
-    css: marginValue
+    css: marginValue,
   },
   {
     prop: "marginLeft",
     property: "margin-left",
-    css: marginValue
+    css: marginValue,
   },
   {
     prop: "marginRight",
     property: "margin-right",
-    css: marginValue
-  }
+    css: marginValue,
+  },
 ];
 
 const style = css<MarginType>`
@@ -44,4 +44,4 @@ const style = css<MarginType>`
 
 export default () => {
   return style;
-}
+};

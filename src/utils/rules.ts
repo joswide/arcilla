@@ -14,13 +14,13 @@ export const getRules = (props: Object, rules: Array<RuleType>) => {
     if (ruleValue) {
       return css`
         ${rule.property}: ${rule.css(
-          props, 
+          props,
           // @ts-ignore
           ruleValue
         )};
       `;
     }
 
-    return '';
+    return "";
   });
-}
+};

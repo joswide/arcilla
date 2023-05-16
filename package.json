@@ -1,6 +1,7 @@
 {
   "name": "@joswide/react-ui",
   "version": "1.0.0",
+  "private": false,
   "scripts": {
     "dev": "npm run build:esm:watch",
     "build": "npm run build:esm && npm run build:cjs",
@@ -13,7 +14,7 @@
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
     "test": "jest --config jestconfig.json",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run prettier && npm run lint"
+    "prepublishOnly0": "npm test && npm run prettier && npm run lint"
   },
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",

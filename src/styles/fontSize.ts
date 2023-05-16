@@ -3,7 +3,7 @@ import { SIZES } from "../aliases";
 
 type Type = {
   size?: keyof typeof SIZES;
-}
+};
 
 const fontSize = css<Type>`
   font-size: ${({ theme, size }) => theme.fontSizes[SIZES[size]]};
@@ -11,4 +11,4 @@ const fontSize = css<Type>`
 
 export default () => {
   return fontSize;
-}
+};

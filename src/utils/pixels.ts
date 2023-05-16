@@ -1,3 +1,3 @@
 export const pixels = (pixels: string) => {
-  return Number(pixels.replace('px', ''));
-}
+  return Number(pixels.replace("px", ""));
+};

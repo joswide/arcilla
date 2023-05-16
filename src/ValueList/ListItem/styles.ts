@@ -5,7 +5,7 @@ export const Label = styled.span`
     display: inline-block;
     content: "";
     background-color: red;
-    background-color: ${({theme}) => theme.colors.primary[8]};
+    background-color: ${({ theme }) => theme.colors.primary[8]};
     border-radius: 4px;
     width: 12px;
     height: 12px;

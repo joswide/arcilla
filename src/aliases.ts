@@ -1,11 +1,10 @@
-
 export const SIZES = {
   xsmall: 1,
   small: 2,
   medium: 3,
   large: 4,
   xlarge: 5,
-  '2xlarge': 6
+  "2xlarge": 6,
 };
 
 export const HEADINGS_SIZES = {

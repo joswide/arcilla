@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import type { LayoutType } from "./types";
 
 type Props = {
-  layout?: LayoutType
+  layout?: LayoutType;
 };
 
 export const Control = styled.div`
@@ -16,7 +16,7 @@ const variants = {
     display: flex;
     flex-shrink: 0;
     align-items: center;
-    
+
     label {
       font-weight: 500;
     }
@@ -29,11 +29,11 @@ const variants = {
   `,
 
   vertical: css`
-    label { 
+    label {
       margin-bottom: 8px;
     }
-  `
-}
+  `,
+};
 
 export const Root = styled.div<Props>`
   position: relative;

@@ -18,21 +18,28 @@ export const SelectTrigger = styled(Select.SelectTrigger)`
   height: 35px;
   gap: 5px;
   background-color: white;
-  color: ${({ theme, color = 'primary' }) => theme.colors[color][10]};
+  color: ${({ theme, color = "primary" }) => theme.colors[color][10]};
   cursor: pointer;
   box-shadow: 0 2px 10px ${blackA.blackA7};
 
-  padding: 0 ${
-    // @ts-ignore
-    ({ theme, size = 'medium' }) => theme.space[SIZES[size]]
-  };
+  padding: 0
+    ${
+      // @ts-ignore
+      ({ theme, size = "medium" }) => theme.space[SIZES[size]]
+    };
   font-size: ${
     // @ts-ignore
-    ({ theme, size = 'medium'}) => theme.fontSizes[SIZES[size]]
+    ({ theme, size = "medium" }) => theme.fontSizes[SIZES[size]]
   };
   height: ${
     // @ts-ignore
-    ({ theme, size = 'medium'}) => `${pixels(theme.space[SIZES[size]]) * 2 + pixels(theme.space[SIZES[size]]) / 2}px`
+    ({ theme, size = "medium" }) =>
+      `${
+        // @ts-ignore
+        pixels(theme.space[SIZES[size]]) * 2 +
+        // @ts-ignore
+        pixels(theme.space[SIZES[size]]) / 2
+      }px`
   };
 
   &:hover {
@@ -44,12 +51,12 @@ export const SelectTrigger = styled(Select.SelectTrigger)`
   }
 
   &[data-placeholder] {
-    color: ${({ theme, color = 'primary' }) => theme.colors[color][10]};
+    color: ${({ theme, color = "primary" }) => theme.colors[color][10]};
   }
 `;
 
 export const SelectIcon = styled(Select.SelectIcon)`
-  color: ${({ theme, color = 'primary' }) => theme.colors[color][10]};
+  color: ${({ theme, color = "primary" }) => theme.colors[color][10]};
 `;
 
 export const SelectContent = styled(Select.Content)`
@@ -57,15 +64,16 @@ export const SelectContent = styled(Select.Content)`
   background-color: white;
   border-radius: 6px;
   margin-top: 3px;
-  box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2);
+  box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35),
+    0px 10px 20px -15px rgba(22, 23, 24, 0.2);
 `;
 
 export const SelectViewport = styled(Select.Viewport)`
   padding: 5px;
 `;
 
-type SelectLabelProps = { 
-  size: SizeType 
+type SelectLabelProps = {
+  size: SizeType;
 };
 
 export const SelectLabel = styled(Select.Label)<SelectLabelProps>`
@@ -77,7 +85,7 @@ export const SelectLabel = styled(Select.Label)<SelectLabelProps>`
 
 export const SelectSeparator = styled(Select.Separator)`
   height: 1px;
-  background-color: ${({ theme, color="primary" }) => theme.colors[color][5]};
+  background-color: ${({ theme, color = "primary" }) => theme.colors[color][5]};
   margin: 5px;
 `;
 
