@@ -1,9 +1,13 @@
 {
   "name": "arcilla",
   "version": "1.0.0",
+  "description": "A React UI component library.",
+  "publisher": "Jose Gutiérrez <hola@joswide.com>",
+  "author": "Jose Gutiérrez <hola@joswide.com>",
+  "license": "GPL-3.0",
   "private": false,
   "scripts": {
-    "dev": "npm run build:esm:watch",
+    "dev": "npm run build:cjs:watch",
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
