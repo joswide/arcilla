@@ -3,6 +3,7 @@ export { Heading } from "./Heading";
 export { Paragraph } from "./Paragraph";
 
 // Layout
+export { Grid } from './Grid';
 export { Box } from "./Box";
 export { Card } from "./Card";
 export { Separator } from "./Separator";
