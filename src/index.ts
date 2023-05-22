@@ -30,3 +30,6 @@ export { ValueList } from "./ValueList";
 // Tables
 export { DataTable } from "./Table";
 export { ColumnDef } from "@tanstack/react-table";
+
+// Tabs
+export { Tabs, TabsPanel } from "./Tabs";

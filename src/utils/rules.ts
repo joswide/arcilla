@@ -8,9 +8,7 @@ type RuleType = {
 
 export const getRules = (props: Object, rules: Array<RuleType>) => {
   return rules.map((rule) => {
-    
     if (props.hasOwnProperty(rule.prop)) {
-
       // @ts-ignore
       const cssValue = rule.css(props, props[rule.prop]);
 

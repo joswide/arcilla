@@ -15,7 +15,7 @@ const marginValue = (props: Object, value: string) => {
   return `${2 * pixels(props.theme.space[SIZES[value]])}px`;
 };
 
-const marginRules = [
+export const marginRules = [
   {
     prop: "marginTop",
     property: "margin-top",
