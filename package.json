@@ -5,6 +5,8 @@
   "publisher": "Jose Gutiérrez <hola@joswide.com>",
   "author": "Jose Gutiérrez <hola@joswide.com>",
   "license": "GPL-3.0",
+  "homepage": "https://github.com/joswide/arcilla",
+  "bugs": "https://github.com/joswide/arcilla/issues",
   "private": false,
   "scripts": {
     "dev": "npm run build:cjs:watch",
