@@ -5,7 +5,7 @@ import { TabsTrigger } from "./TabsTrigger";
 import { TabsContent } from "./TabsContent";
 
 type Props = {
-  children: React.ReactNode,
+  children: React.ReactNode;
 
   // TODO: Add support for this
   // defaultValue: string
@@ -22,12 +22,11 @@ export const Tabs = ({ children }: Props) => {
         {/* Tabs List */}
         <TabsList>
           {tabsChildren.map((tabChild, tabChildIndex) => {
-            const { title } = tabChild.props;
             const value = tabChild.props.value || tabChildIndex;
 
             return (
               <TabsTrigger key={tabChildIndex} value={String(value)}>
-                {title}
+                {tabChild.props.title}
               </TabsTrigger>
             );
           })}
@@ -35,12 +34,11 @@ export const Tabs = ({ children }: Props) => {
 
         {/* Tabs Content */}
         {tabsChildren.map((tabChild, tabChildIndex) => {
-          const { children } = tabChild.props;
           const value = tabChild.props.value || tabChildIndex;
 
           return (
             <TabsContent key={tabChildIndex} value={String(value)}>
-              {children}
+              {tabChild.props.children}
             </TabsContent>
           );
         })}
