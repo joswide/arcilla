@@ -3,6 +3,7 @@ import grid from "../styles/grid";
 
 type Props = {
   gap?: number;
+  gridColumns?: number | Array<number>;
 };
 
 // grid-template-columns: repeat(${({columns = 1}) => columns}, minmax(0, 1fr));
