@@ -9,12 +9,7 @@ type Props = {
   label?: string;
 };
 
-const CheckboxDemo = ({
-  id = "c1",
-  checked = false,
-  onChange,
-  label,
-}: Props) => (
+const Checkbox = ({ id = "c1", checked = false, onChange, label }: Props) => (
   <Flex>
     <CheckboxRoot
       onCheckedChange={onChange}
@@ -31,4 +26,4 @@ const CheckboxDemo = ({
   </Flex>
 );
 
-export default CheckboxDemo;
+export default Checkbox;

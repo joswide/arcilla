@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { margin } from '../styles';
 
 export const Root = styled.ul`
+  ${margin}
   list-style: none;
 
   li {

@@ -1,8 +1,7 @@
-import sc from "styled-components";
-import { violet, blackA } from "@radix-ui/colors";
+import styled from "styled-components";
 import * as Checkbox from "@radix-ui/react-checkbox";
 
-export const CheckboxRoot = sc(Checkbox.Root)`
+export const CheckboxRoot = styled(Checkbox.Root)`
   all: unset;
   background-color: #fff;
   width: 25px;
@@ -11,29 +10,36 @@ export const CheckboxRoot = sc(Checkbox.Root)`
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 10px ${blackA.blackA7};
+  box-shadow: 0 2px 10px ${({ theme }) => theme.colors.ui[7]};
 
   &:hover {
-    background-color: ${violet.violet3};
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.colors.primary[3]};
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px black;
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.primary[6]};
   }
 `;
 
-export const CheckboxIndicator = sc(Checkbox.Indicator)`
-  color: ${violet.violet11};
+export const CheckboxIndicator = styled(Checkbox.Indicator)`
+  color: ${({ theme }) => theme.colors.primary[10]};
+
+  svg {
+    vertical-align: middle;
+    width: 22px;
+    height: 22px;
+  }
 `;
 
-export const Label = sc.label`
+export const Label = styled.label`
   color: #000;
   font-size: 15px;
   line-height: 1;
   padding-left: 15px;
 `;
 
-export const Flex = sc.div`
+export const Flex = styled.div`
   display: flex;
   align-items: center;
 `;

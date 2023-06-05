@@ -6,14 +6,15 @@ import type { LayoutType } from "../Forms/FormGroup/types";
 import { FormGroup } from "../Forms/FormGroup";
 
 import {
+  Root,
   SelectTrigger,
   SelectContent,
   SelectIcon,
   SelectScrollUpButton,
   SelectScrollDownButton,
   SelectViewport,
-  // SelectSeparator,
   SelectLabel,
+  // SelectSeparator,
 } from "./styles";
 
 import type { ColorType, SizeType } from "../types";
@@ -33,6 +34,7 @@ type Props = {
   placeholder?: string;
   value?: string;
   onChange: (value: string) => void;
+  controlWidth?: string;
 };
 
 const Select = ({
@@ -43,114 +45,59 @@ const Select = ({
   placeholder = "Selecciona...",
   value,
   onChange,
+  controlWidth = "100%",
 }: Props) => {
   const handleChange = (value: string) => {
     onChange(value);
   };
+
   return (
-    <SelectPrimitive.Root value={value} onValueChange={handleChange}>
-      <SelectTrigger aria-label={label} color="primary">
-        <SelectPrimitive.Value placeholder={placeholder} />
-        <SelectIcon>
-          <ChevronDownIcon />
-        </SelectIcon>
-      </SelectTrigger>
-
-      <SelectPrimitive.Portal>
-        <SelectContent position="popper">
-          <SelectScrollUpButton>
-            <ChevronUpIcon />
-          </SelectScrollUpButton>
-
-          <SelectViewport>
-            <SelectPrimitive.Group>
-              <SelectLabel size={size}>{label}</SelectLabel>
-
-              {options.map((option) => (
-                <SelectItem
-                  color={color}
-                  size={size}
-                  value={option.value}
-                  key={option.value}
-                >
-                  {option.label}
-                </SelectItem>
-              ))}
-            </SelectPrimitive.Group>
-          </SelectViewport>
-
-          {/* <SelectViewport>
-            <SelectPrimitive.Group>
-              <SelectLabel size={size}>Fruits</SelectLabel>
-              <SelectItem color={color} size={size} value="apple">
-                Apples
-              </SelectItem>
-              <SelectItem color={color} size={size} value="banana">
-                Banana
-              </SelectItem>
-              <SelectItem color={color} size={size} value="blueberry">
-                Blueberry
-              </SelectItem>
-              <SelectItem color={color} size={size} value="grapes">
-                Grapes
-              </SelectItem>
-              <SelectItem color={color} size={size} value="pineapple">
-                Pineapple
-              </SelectItem>
-            </SelectPrimitive.Group>
-
-            <SelectSeparator />
-
-            <SelectPrimitive.Group>
-              <SelectLabel size={size}>Vegetables</SelectLabel>
-              <SelectItem color={color} size={size} value="aubergine">
-                Aubergine
-              </SelectItem>
-              <SelectItem color={color} size={size} value="broccoli">
-                Broccoli
-              </SelectItem>
-              <SelectItem color={color} size={size} value="carrot" disabled>
-                Carrot
-              </SelectItem>
-              <SelectItem color={color} size={size} value="courgette">
-                Courgette
-              </SelectItem>
-              <SelectItem color={color} size={size} value="leek">
-                Leek
-              </SelectItem>
-            </SelectPrimitive.Group>
-
-            <SelectSeparator />
-
-            <SelectPrimitive.Group>
-              <SelectLabel size={size}>Meat</SelectLabel>
-              <SelectItem color={color} size={size} value="beef">
-                Beef
-              </SelectItem>
-              <SelectItem color={color} size={size} value="chicken">
-                Chicken
-              </SelectItem>
-              <SelectItem color={color} size={size} value="lamb">
-                Lamb
-              </SelectItem>
-              <SelectItem color={color} size={size} value="pork">
-                Pork
-              </SelectItem>
-            </SelectPrimitive.Group>
-          </SelectViewport> */}
-          <SelectScrollDownButton>
+    <Root controlWidth={controlWidth}>
+      <SelectPrimitive.Root value={value} onValueChange={handleChange}>
+        <SelectTrigger aria-label={label} color={color}>
+          <SelectPrimitive.Value placeholder={placeholder} />
+          <SelectIcon>
             <ChevronDownIcon />
-          </SelectScrollDownButton>
-        </SelectContent>
-      </SelectPrimitive.Portal>
-    </SelectPrimitive.Root>
+          </SelectIcon>
+        </SelectTrigger>
+
+        <SelectPrimitive.Portal>
+          <SelectContent position="popper">
+            <SelectScrollUpButton>
+              <ChevronUpIcon />
+            </SelectScrollUpButton>
+
+            <SelectViewport>
+              <SelectPrimitive.Group>
+                <SelectLabel size={size}>{label}</SelectLabel>
+
+                {options.map((option) => (
+                  <SelectItem
+                    color={color}
+                    size={size}
+                    value={option.value}
+                    key={option.value}
+                  >
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </SelectPrimitive.Group>
+            </SelectViewport>
+
+            <SelectScrollDownButton>
+              <ChevronDownIcon />
+            </SelectScrollDownButton>
+          </SelectContent>
+        </SelectPrimitive.Portal>
+      </SelectPrimitive.Root>
+    </Root>
   );
 };
 
 const SelectFormGroup = ({
   id,
   size,
-  label,
+  label = "",
   layout = "vertical",
   ...rest
 }: Props) => {

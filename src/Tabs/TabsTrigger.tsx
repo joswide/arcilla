@@ -11,6 +11,7 @@ const Root = styled(TabsPrimitive.Trigger)`
   text-align: center;
   transition: all 0.2s ease-out;
   font-weight: 500;
+  user-select: none;
 
   :not(:last-child) {
     margin-right: 4px;

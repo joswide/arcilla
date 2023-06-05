@@ -6,12 +6,13 @@ import { TabsContent } from "./TabsContent";
 
 type Props = {
   children: React.ReactNode;
+  fullWidth?: boolean;
 
   // TODO: Add support for this
   // defaultValue: string
 };
 
-export const Tabs = ({ children }: Props) => {
+export const Tabs = ({ children, fullWidth = false }: Props) => {
   const tabsChildren =
     children && Array.isArray(children) ? children : children ? [children] : [];
 
@@ -20,28 +21,26 @@ export const Tabs = ({ children }: Props) => {
       {/* Tabs Block */}
       <TabsPrimitive.Root defaultValue="0">
         {/* Tabs List */}
-        <TabsList>
-          {tabsChildren.map((tabChild, tabChildIndex) => {
-            const value = tabChild.props.value || tabChildIndex;
-
-            return (
-              <TabsTrigger key={tabChildIndex} value={String(value)}>
-                {tabChild.props.title}
-              </TabsTrigger>
-            );
-          })}
+        {/* @ts-ignore */}
+        <TabsList fullWidth={fullWidth}>
+          {tabsChildren.map((tabChild, tabChildIndex) => (
+            <TabsTrigger
+              key={tabChildIndex}
+              value={String(tabChild.props.value || tabChildIndex)}
+            >
+              {tabChild.props.title}
+            </TabsTrigger>
+          ))}
         </TabsList>
-
         {/* Tabs Content */}
-        {tabsChildren.map((tabChild, tabChildIndex) => {
-          const value = tabChild.props.value || tabChildIndex;
-
-          return (
-            <TabsContent key={tabChildIndex} value={String(value)}>
-              {tabChild.props.children}
-            </TabsContent>
-          );
-        })}
+        {tabsChildren.map((tabChild, tabChildIndex) => (
+          <TabsContent
+            key={tabChildIndex}
+            value={String(tabChild.props.value || tabChildIndex)}
+          >
+            {tabChild.props.children}
+          </TabsContent>
+        ))}
       </TabsPrimitive.Root>
     </div>
   );

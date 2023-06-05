@@ -2,6 +2,9 @@
 export { Heading } from "./Heading";
 export { Paragraph } from "./Paragraph";
 
+export { Link } from './Link';
+
+
 // Layout
 export { Grid } from './Grid';
 export { Box } from "./Box";

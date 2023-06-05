@@ -28,11 +28,6 @@ const rules = [
   },
 ];
 
-
-// const style = css<Object>`
-//   ${(props) => getRules(props, rules)}
-// `;
-
 it ("should return empty string if no props", () => {
   const result = getRules({ marginRight: 5, marginLeft: 1}, rules)
 

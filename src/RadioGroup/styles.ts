@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import * as RadioGroup from "@radix-ui/react-radio-group";
-import { violet, blackA } from "@radix-ui/colors";
+import { blackA } from "@radix-ui/colors";
 
-export const RadioGroupRoot = styled(RadioGroup.Root)`
+type RootProps = {
+  $orientation?: "horizontal" | "vertical";
+}
+
+export const RadioGroupRoot = styled(RadioGroup.Root)<RootProps>`
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-flow: ${({ $orientation }) => $orientation === "horizontal" ? "row" : "column"};
+  gap: 12px 36px;
 `;
 
 export const RadioGroupItem = styled(RadioGroup.Item)`
@@ -17,7 +21,6 @@ export const RadioGroupItem = styled(RadioGroup.Item)`
   box-shadow: 0 2px 10px ${blackA.blackA7};
 
   &:hover {
-    background-color: ${violet.violet3};
     background-color: ${({ theme }) => theme.colors.primary[2]};
   }
 
@@ -40,7 +43,6 @@ export const RadioGroupIndicator = styled(RadioGroup.Indicator)`
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    background-color: ${violet.violet11};
     background-color: ${({ theme }) => theme.colors.primary[10]};
   }
 `;

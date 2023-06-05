@@ -6,9 +6,9 @@ type Props = {
 };
 
 export const Control = styled.div`
-  > button {
+  /* > button {
     width: 100%;
-  }
+  } */
 `;
 
 const variants = {

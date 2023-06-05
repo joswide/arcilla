@@ -1,24 +1,32 @@
 import styled from "styled-components";
 import { SIZES } from "../aliases";
-import { pixels } from "../utils";
+import { pixels, aliasScale } from "../utils";
 import type { SizeType } from "../types";
+import fontSize from "../styles/fontSize";
+import margin from "../styles/margin";
 
 type Props = {
-  size?: SizeType;
+  fontSize?: SizeType;
+  lineHeight?: SizeType;
+  marginBottom?: SizeType;
 };
 
-export const Paragraph = styled.p<Props>`
-  all: unset;
-  display: block;
-  font-size: ${
-    // @ts-ignore
-    ({ theme, size = "medium" }) => theme.fontSizes[SIZES[size]]
-  };
+// font-size: ${
+//   // @ts-ignore
+//   ({ theme, size = "medium" }) => theme.fontSizes[SIZES[size]]
+// };
 
-  line-height: ${
-    // @ts-ignore
-    ({ theme, size = "medium" }) => theme.fontSizes[SIZES[size] + 6]
-  };
+export const Paragraph = styled.p.attrs((props: Props) => ({
+  $fontSize: props.fontSize || "medium",
+  $lineHeight: props.lineHeight || props.fontSize || "medium",
+  $marginBottom:
+    props.marginBottom || aliasScale(props.fontSize, -2) || "medium",
+  fontSize: undefined,
+}))<Props>`
+  all: unset;
+  ${fontSize}
+  ${margin}
+  display: block;
 
   :not(:first-child) {
     margin-top: ${
@@ -26,9 +34,4 @@ export const Paragraph = styled.p<Props>`
       ({ theme, size = "medium" }) => pixels(theme.space[SIZES[size]]) / 1
     }px;
   }
-
-  margin-bottom: ${
-    // @ts-ignore
-    ({ theme, size = "medium" }) => pixels(theme.space[SIZES[size]]) / 1
-  }px;
 `;

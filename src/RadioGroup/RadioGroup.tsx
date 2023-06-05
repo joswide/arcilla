@@ -7,29 +7,49 @@ import {
   Flex,
 } from "./styles";
 
-const RadioGroup = () => (
-  <RadioGroupRoot defaultValue="default" aria-label="View density">
-    <Flex>
-      <RadioGroupItem value="default" id="r1">
-        <RadioGroupIndicator />
-      </RadioGroupItem>
-      <Label htmlFor="r1">Default</Label>
-    </Flex>
+type OptionType = {
+  label: string;
+  value: string;
+};
 
-    <Flex>
-      <RadioGroupItem value="comfortable" id="r2">
-        <RadioGroupIndicator />
-      </RadioGroupItem>
-      <Label htmlFor="r2">Comfortable</Label>
-    </Flex>
+type Props = {
+  id?: string;
+  orientation?: "horizontal" | "vertical";
+  options: OptionType[];
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+};
 
-    <Flex>
-      <RadioGroupItem value="compact" id="r3">
-        <RadioGroupIndicator />
-      </RadioGroupItem>
-      <Label htmlFor="r3">Compact</Label>
-    </Flex>
-  </RadioGroupRoot>
-);
+const RadioGroup = ({
+  id = "rg1",
+  orientation = "vertical",
+  options,
+  value,
+  onChange,
+  label,
+}: Props) => {
+  return (
+    <RadioGroupRoot
+      $orientation={orientation}
+      value={value}
+      onValueChange={onChange}
+      aria-label={label}
+    >
+      {options.map((option, key) => {
+        const optionId = `${id}-${option.value}`;
+
+        return (
+          <Flex key={key}>
+            <RadioGroupItem value={option.value} id={optionId}>
+              <RadioGroupIndicator />
+            </RadioGroupItem>
+            <Label htmlFor={optionId}>{option.label}</Label>
+          </Flex>
+        );
+      })}
+    </RadioGroupRoot>
+  );
+};
 
 export default RadioGroup;

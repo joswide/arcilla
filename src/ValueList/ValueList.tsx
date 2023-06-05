@@ -8,7 +8,7 @@ type Props = {
 
 export const ValueList = ({ items }: Props) => {
   return (
-    <Root>
+    <Root marginBottom="small">
       {items.map((item) => (
         <ListItem key={item.label} item={item} />
       ))}

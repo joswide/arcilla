@@ -1,6 +1,6 @@
 import * as Select from "@radix-ui/react-select";
 import styled, { css } from "styled-components";
-import { violet, blackA } from "@radix-ui/colors";
+import { violet } from "@radix-ui/colors";
 import { pixels } from "../utils";
 import { SIZES } from "../aliases";
 import type { SizeType } from "../types";
@@ -20,7 +20,7 @@ export const SelectTrigger = styled(Select.SelectTrigger)`
   background-color: white;
   color: ${({ theme, color = "primary" }) => theme.colors[color][10]};
   cursor: pointer;
-  box-shadow: 0 2px 10px ${blackA.blackA7};
+  box-shadow: ${({ theme }) => `0 0 0 1px ${theme.colors.primary[8]}`};
 
   padding: 0
     ${
@@ -52,6 +52,14 @@ export const SelectTrigger = styled(Select.SelectTrigger)`
 
   &[data-placeholder] {
     color: ${({ theme, color = "primary" }) => theme.colors[color][10]};
+  }
+`;
+
+export const Root = styled.div<{ controlWidth?: string }>`
+  display: inline;
+
+  ${SelectTrigger} {
+    width: ${({ controlWidth = "100%" }) => controlWidth};
   }
 `;
 
