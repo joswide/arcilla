@@ -36,3 +36,6 @@ export { ColumnDef } from "@tanstack/react-table";
 
 // Tabs
 export { Tabs, TabsPanel } from "./Tabs";
+
+// Mediaqueries
+export { up, down, between } from "./mediaqueries.js";

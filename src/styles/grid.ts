@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import {  getRules } from "../utils";
+import { getRules } from "../utils";
 
 export type GridType = {
   gridColumns?: number | Array<number>;
